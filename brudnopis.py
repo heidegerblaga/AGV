@@ -18,17 +18,18 @@ print(measure().split(";"))
 
 
 
-
-
-
 # wheel1 = control_agv(int(measure().split(";")[2]), int(measure().split(";")[1]),int(measure().split(";")[3]))[0]
 # wheel2 = control_agv(int(measure().split(";")[2]), int(measure().split(";")[1]),int(measure().split(";")[3]))[1]
-
-# while True:
-#     print(control_agv(int(measure().split(";")[2]), int(measure().split(";")[1]),int(measure().split(";")[3])))
-#     print(measure().split(";"))
-#     message = bytes([0xFF,int(wheel1),0xFF,int(wheel2)])
+#
+#
+# while measure().split(";")[2]<="500" and measure().split(";")[3]<="500" :
 #     client.sendto(message,(target_host,target_port))
+#
+#     data,addr = client.recvfrom(4096)
+#     print("halo")
+#
+#     print(f"odebrano: {data.decode()} z adresu: {addr}")
+#     print(measure().split(";"))
 while True :
     # client.sendto(message,(target_host,target_port))
 

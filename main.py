@@ -1,6 +1,6 @@
 import socket
 from czujnik import measure
-from control_agv import control_agv
+from logika import Controller
 import struct
 
 target_host = "192.168.0.101"
@@ -10,20 +10,8 @@ client = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 message = bytes([0xFF,0x88,0xFF,0x88])
 
 
-print(measure().split(";"))
+X = Controller(5000,5000,5000,500,500)
 
-
-wheel1 = control_agv(int(measure().split(";")[2]), int(measure().split(";")[1]),int(measure().split(";")[3]))[0]
-wheel2 = control_agv(int(measure().split(";")[2]), int(measure().split(";")[1]),int(measure().split(";")[3]))[1]
-
-
-while measure().split(";")[2]<="500" and measure().split(";")[3]<="500" :
-    client.sendto(message,(target_host,target_port))
-
-    data,addr = client.recvfrom(4096)
-    print("halo")
-
-    print(f"odebrano: {data.decode()} z adresu: {addr}")
-    print(measure().split(";"))
+print(X.control_agv(1000,1000,1000))
 
 client.close()
