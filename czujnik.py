@@ -2,7 +2,7 @@ import socket
 
 
 def meaure() :
-    target_host = "192.168.0.100"
+    target_host = "192.168.0.102"
     target_port = 4000
 
     client = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
